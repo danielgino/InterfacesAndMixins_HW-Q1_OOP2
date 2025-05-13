@@ -9,9 +9,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import static question2.HouseLocations.*;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class MainQuest2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -33,7 +30,8 @@ public class MainQuest2 {
             System.out.println("2.Turn on Living room");
             System.out.println("3.Turn on Bed room");
             System.out.println("4.Turn on Garage");
-            System.out.println("5.Leave 🏠");
+            System.out.println("5.Turn on All House");
+            System.out.println("6.Leave 🏠");
             System.out.print(">>> ");
             String input = scanner.nextLine().trim();
 
@@ -51,11 +49,14 @@ public class MainQuest2 {
                    remoteControl.operateByLocation(GARAGE);
                    break;
                case "5":
+                   remoteControl.operateAll();
+                   break;
+               case "6":
                    System.out.println("Exiting👋 ...");
                    return;
                default:
                    System.out.println("Invalid choice. Please enter a number between 1-5.");
-                   return;
+
            }
         }
 
