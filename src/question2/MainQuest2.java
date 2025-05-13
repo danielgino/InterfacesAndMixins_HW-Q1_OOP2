@@ -16,17 +16,6 @@ public class MainQuest2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-//            Operate[] devices = {
-//                    new Television(),
-//                    new Speaker(),
-//                    new Radio(),
-//                    new ElectricMotor(),
-//                    new MechanicalMotor(),
-//                    new Refrigerator(),
-//                    new Oven()
-//
-//            };
-
         Television tv = new Television();
         Refrigerator fridge = new Refrigerator();
         Oven oven = new Oven();
@@ -70,10 +59,6 @@ public class MainQuest2 {
            }
         }
 
-//            for (Operate device : devices) {
-//                System.out.println("\n🟢 Operating device:");
-//                device.operate();
-//            }
         }
 
     }
