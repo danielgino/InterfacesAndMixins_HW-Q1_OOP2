@@ -1,8 +1,6 @@
 package question2;
 
 
-import question2.abstracts.ElectronicDevice;
-import question2.interfaces.Operate;
 import question2.model.*;
 
 import java.util.List;

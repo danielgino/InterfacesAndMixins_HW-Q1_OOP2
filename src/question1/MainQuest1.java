@@ -66,7 +66,7 @@ public class MainQuest1 {
 
                 String selectedName = names.get(choice - 1);
                 Object selected = animalsWiki.get(selectedName);
-
+                printClassHierarchy(selected);
                 System.out.println("\nשאל שאלות על \"" + selectedName + "\"");
                 System.out.println("(כתוב 'תפריט' לחזרה לתפריט או 'יציאה' כדי לסיים)\n");
 
@@ -109,5 +109,19 @@ public class MainQuest1 {
                 System.out.println("אפשרויות תקינות: 1 / 2 / 3 או 'יציאה'");
             }
         }
+    }
+
+
+
+    public static void printClassHierarchy(Object obj) {
+        System.out.println("\nהיררכיית מחלקות:");
+        Class<?> currentClass = obj.getClass();
+        List<String> hierarchy = new ArrayList<>();
+        while (currentClass != null && !currentClass.getSimpleName().equals("Object")) {
+            hierarchy.add(currentClass.getSimpleName());
+            currentClass = currentClass.getSuperclass();
+        }
+        Collections.reverse(hierarchy);
+        System.out.println(String.join(" -> ", hierarchy));
     }
 }
