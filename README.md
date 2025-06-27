@@ -79,3 +79,126 @@ LivingThing -> Animal -> Bird -> Canary
 כן, זו ציפור.
 >>>>> 
 ```
+
+
+
+
+# Question 2 -  Smart Home Simulation – OOP & Mixins
+
+## Project Overview
+
+This project simulates a **smart home** system where various devices (TVs, radios, speakers, motors, fridge, oven, etc.) can be controlled using a central **Remote Control**.
+
+The system is fully implemented using **Object-Oriented Programming** principles and leverages **Mixins** to define optional device behaviors.
+
+---
+
+## Technologies & Concepts
+
+- ✅ Java (Object-Oriented Design)
+- ✅ Abstract classes for base device types
+- ✅ Interfaces (Mixins) for specific capabilities
+- ✅ Enum for house locations
+- ✅ Modular, scalable design
+
+---
+
+
+###  Class Hierarchy
+
+```
+├── ElectronicDevice
+│ ├── FrequencyDevice (adds channelTuning)
+│ │ ├── Television (display, audio, resolution)
+│ │ └── Radio (audio)
+│ ├── Refrigerator (located, operable)
+│ └── Oven (temp control)
+├── MechanicalDevice
+│ └── MechanicalMotor (speed control)
+```
+
+
+
+---
+
+### 🧬 Mixins (Interfaces)
+
+The following interfaces are used as **Mixins** – they define optional behaviors and allow composition across unrelated class hierarchies:
+
+| Interface         | Responsibility             |
+|-------------------|----------------------------|
+| `Operate`         | Makes a device controllable |
+| `Located`         | Ties device to rooms        |
+| `AudioControl`    | Supports volume control     |
+| `SpeedControl`    | Allows motor speed change   |
+| `ChangeResolution`| For changing screen quality |
+| `Temp Control`    | Oven-specific Temp         |
+
+---
+
+##  Main Features
+
+- 🔘 **RemoteControl** class:
+  - `operateByLocation(HouseLocations location)`
+  - `operateAll()`
+
+-  **HouseLocations** enum:
+  - `KITCHEN`, `LIVING_ROOM`, `BED_ROOM`, `GARAGE`
+
+-  **Dynamic device operation**:
+  - All devices implement only the interfaces they need
+  - Remote uses `instanceof` to operate valid devices
+
+---
+
+## 📺 Example Run
+```
+Welcome ! You just entered the 🏠 choose what to switch on💡
+1.Turn on Kitchen room
+2.Turn on Living room
+3.Turn on Bed room
+4.Turn on Garage
+5.Turn on All House
+6.Leave 🏠
+>>> 1
+Operating devices in: KITCHEN
+-----
+Switch On
+Refrigerator C️ontrol Speed 🏎️
+Changing Refrigerator Temperature
+-----
+Switch On
+Oven C️ontrol Speed 🏎️
+Changing Oven Temperature
+Welcome ! You just entered the 🏠 choose what to switch on💡
+1.Turn on Kitchen room
+2.Turn on Living room
+3.Turn on Bed room
+4.Turn on Garage
+5.Turn on All House
+6.Leave 🏠
+>>> 3
+Operating devices in: BED_ROOM
+-----
+Switch On
+Change TV Resolution📺
+Channel Tuning
+TV Control Volume📢
+-----
+Switch On
+Channel Tuning
+Control Radio Volume📢
+-----
+Switch On
+Speaker Control Volume 📢 
+Welcome ! You just entered the 🏠 choose what to switch on💡
+1.Turn on Kitchen room
+2.Turn on Living room
+3.Turn on Bed room
+4.Turn on Garage
+5.Turn on All House
+6.Leave 🏠
+>>> 
+
+```
+
